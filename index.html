@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PHASE — web synthesizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>PHASE</h1>
+        <div class="transport">
+          <button id="play" type="button" aria-label="Play">▶</button
+          ><button id="stop" type="button" aria-label="Stop">■</button
+          ><label for="bpm">BPM <output id="bpmValue">116</output></label
+          ><input id="bpm" type="range" min="65" max="175" value="116" />
+        </div>
+      </header>
+      <section class="instruments" aria-label="Инструменты">
+        <article class="instrument lead">
+          <h2>Lead</h2>
+          <div class="knobs" data-channel="lead"></div>
+          <button
+            type="button"
+            class="channel-toggle"
+            data-toggle="lead"
+            aria-pressed="false"
+            aria-label="Включить lead"
+          ></button>
+        </article>
+        <article class="instrument bass">
+          <h2>Bass</h2>
+          <div class="knobs" data-channel="bass"></div>
+          <button
+            type="button"
+            class="channel-toggle"
+            data-toggle="bass"
+            aria-pressed="false"
+            aria-label="Включить bass"
+          ></button>
+        </article>
+        <article class="instrument drums">
+          <h2>Drums</h2>
+          <div class="knobs" data-channel="drums"></div>
+          <button
+            type="button"
+            class="channel-toggle"
+            data-toggle="drums"
+            aria-pressed="false"
+            aria-label="Включить drums"
+          ></button>
+        </article>
+        <article class="instrument percussion">
+          <h2>Percussion</h2>
+          <div class="knobs" data-channel="percussion"></div>
+          <button
+            type="button"
+            class="channel-toggle"
+            data-toggle="percussion"
+            aria-pressed="false"
+            aria-label="Включить percussion"
+          ></button>
+        </article>
+      </section>
+      <section class="melodies">
+        <article class="melody melody-one">
+          <h2>Melody 1</h2>
+          <div
+            class="steps"
+            data-melody="0"
+            aria-label="Варианты основной мелодии"
+          ></div>
+          <div class="volume-line">
+            <label for="melody1vol">vol</label
+            ><input type="range" id="melody1vol" min="0" max="100" value="75" />
+          </div>
+        </article>
+        <article class="melody melody-two">
+          <h2>Melody 2</h2>
+          <div
+            class="steps"
+            data-melody="1"
+            aria-label="Варианты ответной мелодии"
+          ></div>
+          <div class="volume-line">
+            <label for="melody2vol">vol</label
+            ><input type="range" id="melody2vol" min="0" max="100" value="62" />
+          </div>
+        </article>
+      </section>
+      <footer>
+        <span id="status" role="status" class="visually-hidden"></span
+        ><input
+          id="master"
+          aria-label="Общая громкость"
+          type="range"
+          min="0"
+          max="100"
+          value="75"
+        />
+      </footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="script.js"></script>
+    <script src="script_1.js"></script>
+    <script src="script_2.js"></script>
+  </body>
+</html>
